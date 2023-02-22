@@ -3,11 +3,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next build && next start -p 3002",
+    "export": "next build && next export",
+    "serve": "next build && node server/server.js"
   },
   "dependencies": {
+    "express": "^4.18.2",
+    "jquery": "^3.6.3",
+    "lru-cache": "^7.14.1",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "text-signature": "^1.1.2"
   }
 }
