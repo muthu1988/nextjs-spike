@@ -9,6 +9,7 @@ export const getServerSideProps = async ({ res }) => {
   //   'Cache-Control',
   //   'public, s-maxage=10, stale-while-revalidate=60'
   // )
+  throw new Error();
   return ({ props: { serverSideProps: `Some data fetched on each request ${new Date().toISOString()}` } })
 }
 
