@@ -35,7 +35,7 @@ async function renderAndCache(req, res) {
   const key = getCacheKey(req);
   if (ssrCache.has(key)) {
     console.log(`serving from cache ${key}`);
-    res.setHeader('x-cache', 'HIT');
+    res.setHeader('x-cache', 'cached');
     res.send(ssrCache.get(key));
     return
   }
@@ -54,7 +54,7 @@ async function renderAndCache(req, res) {
     // Let's cache this page
     ssrCache.set(key, html);
 
-    res.setHeader('x-cache', 'MISS');
+    res.setHeader('x-cache', 'cached');
     res.send(html)
   } catch (err) {
     app.renderError(err, req, res, req.path, req.query)
